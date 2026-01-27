@@ -7,9 +7,16 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
 
     <style>
+        /* VARIÁVEIS DE COR */
+        :root {
+            --brand-color: #360d3b; /* Roxo Profundo da Marca */
+            --bg-color: #fdfdfd;    /* Branco Papel / Off-white */
+            --text-color: #360d3b;
+        }
+
         /* RESET & BASE */
         * {
             margin: 0;
@@ -18,8 +25,8 @@
         }
 
         body {
-            background-color: #050505; /* Preto Profundo */
-            color: #f4f4f4;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Montserrat', sans-serif;
             height: 100vh;
             display: flex;
@@ -31,12 +38,13 @@
             position: relative;
         }
 
-        /* TEXTURA DE FUNDO (Sutil ruído para evitar aspecto 'chapado') */
+        /* TEXTURA DE FUNDO (Efeito Papel Nobre) */
         body::before {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            /* Filtro de ruído ajustado para fundo claro */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 0;
         }
@@ -46,71 +54,80 @@
             z-index: 1;
             padding: 2rem;
             max-width: 800px;
-            opacity: 0; /* Começa invisível para animação */
+            opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
 
         /* LOGO */
         .logo {
-            max-width: 300px;
-            width: 80%;
+            max-width: 320px;
+            width: 85%;
             height: auto;
-            margin-bottom: 3rem;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+            margin-bottom: 3.5rem;
+            /* Como o logo já é da cor #360d3b e o fundo é branco, não precisa de filtro, 
+               apenas garantimos que ele carregue com nitidez */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* ASSINATURA / MANIFESTO */
         .signature {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 300;
-            line-height: 1.6;
-            color: #e0e0e0;
+            font-size: 2rem;
+            font-weight: 300; /* Leveza */
+            line-height: 1.5;
+            color: var(--brand-color);
             margin-bottom: 4rem;
-            letter-spacing: 0.5px;
+            letter-spacing: -0.5px; /* Kerning mais apertado estilo editorial */
         }
 
-        .signature em {
-            font-style: italic;
-            color: #360d3b; /* Dourado Sutil */
+        /* Destaque na assinatura (negrito sutil na mesma cor) */
+        .signature strong {
+            font-weight: 600;
         }
 
         .divider {
             width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, transparent, #360d3b, transparent);
+            height: 70px;
+            /* Gradiente usando a cor da marca */
+            background: linear-gradient(to bottom, transparent, var(--brand-color), transparent);
+            opacity: 0.6;
             margin: 0 auto 3rem auto;
         }
 
         /* SOCIAL & CTA */
         .social-context {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 1rem;
-            color: #888;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            color: var(--brand-color);
+            opacity: 0.8;
+            font-weight: 400;
         }
 
         .instagram-link {
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            color: #fff;
+            font-size: 0.95rem;
+            color: var(--brand-color);
             text-decoration: none;
-            border: 1px solid #360d3b;
-            padding: 12px 30px;
-            transition: all 0.4s ease;
+            border: 1px solid var(--brand-color); /* Borda fina na cor da marca */
+            padding: 14px 35px;
+            transition: all 0.5s ease;
             letter-spacing: 2px;
             position: relative;
-            overflow: hidden;
+            text-transform: uppercase;
         }
 
+        /* Hover Effect: Inverte as cores */
         .instagram-link:hover {
-            border-color: #360d3b;
-            color: #360d3b;
-            background: rgb(255, 255, 255);
+            background-color: var(--brand-color);
+            color: #ffffff;
             letter-spacing: 3px;
+            box-shadow: 0 5px 15px rgba(54, 13, 59, 0.15); /* Sombra suave roxa */
         }
 
         /* ANIMAÇÃO */
@@ -123,41 +140,33 @@
 
         /* MOBILE */
         @media (max-width: 768px) {
-            .logo { max-width: 220px; }
-            .signature { font-size: 1.4rem; }
+            .logo { max-width: 240px; margin-bottom: 2.5rem; }
+            .signature { font-size: 1.5rem; margin-bottom: 3rem; }
             .divider { height: 40px; margin-bottom: 2rem; }
+            .instagram-link { padding: 12px 28px; font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="/LogotipoMAZRRY-02.png" alt="MAZRRY" class="logo">
+        <img src="LogotipoMAZRRY-02.png" alt="MAZRRY" class="logo">
 
         <div class="divider"></div>
 
         <p class="signature">
             Conexo. Sem Nexo.<br>
             Diverso. Magnético.<br>
-            <em>Como a Mazrry. E ponto.</em>
+            Como a Mazrry. <strong>E ponto.</strong>
         </p>
 
         <div class="social-wrapper">
             <p class="social-context">Acompanhe o lançamento</p>
             <a href="https://instagram.com/mazrry_" target="_blank" class="instagram-link">
-                @MAZRRY_
+                @mazrry_
             </a>
         </div>
     </div>
 
-    <script>
-        // Script simples para garantir suavidade no carregamento
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('.container');
-            // A animação é tratada via CSS, mas aqui poderíamos adicionar
-            // lógicas extras se necessário.
-            console.log("MAZRRY - Loading Luxury Experience...");
-        });
-    </script>
 </body>
 </html>
