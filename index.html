@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAZRRY | Em breve</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505; /* Preto Profundo */
+            color: #f4f4f4;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* TEXTURA DE FUNDO (Sutil ruído para evitar aspecto 'chapado') */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+            opacity: 0; /* Começa invisível para animação */
+            transform: translateY(20px);
+            animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        /* LOGO */
+        .logo {
+            max-width: 300px;
+            width: 80%;
+            height: auto;
+            margin-bottom: 3rem;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+        }
+
+        /* ASSINATURA / MANIFESTO */
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 4rem;
+            letter-spacing: 0.5px;
+        }
+
+        .signature em {
+            font-style: italic;
+            color: #d4af37; /* Dourado Sutil */
+        }
+
+        .divider {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+            margin: 0 auto 3rem auto;
+        }
+
+        /* SOCIAL & CTA */
+        .social-context {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            color: #888;
+        }
+
+        .instagram-link {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 30px;
+            transition: all 0.4s ease;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instagram-link:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.05);
+            letter-spacing: 3px;
+        }
+
+        /* ANIMAÇÃO */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .logo { max-width: 220px; }
+            .signature { font-size: 1.4rem; }
+            .divider { height: 40px; margin-bottom: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="/logo_mazrry.webp" alt="MAZRRY" class="logo">
+
+        <div class="divider"></div>
+
+        <p class="signature">
+            Conexo. Sem Nexo.<br>
+            Diverso. Magnético.<br>
+            <em>Como a Mazrry. E ponto.</em>
+        </p>
+
+        <div class="social-wrapper">
+            <p class="social-context">Acompanhe o lançamento</p>
+            <a href="https://instagram.com/mazrry_" target="_blank" class="instagram-link">
+                @MAZRRY_
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Script simples para garantir suavidade no carregamento
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector('.container');
+            // A animação é tratada via CSS, mas aqui poderíamos adicionar
+            // lógicas extras se necessário.
+            console.log("MAZRRY - Loading Luxury Experience...");
+        });
+    </script>
+</body>
+</html>
