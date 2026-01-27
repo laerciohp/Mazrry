@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAZRRY | Online Store Opening Soon</title>
+    <title>MAZRRY | Fine Jewelry</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* VARIÁVEIS DE COR */
+        /* VARIÁVEIS DE COR (Baseadas no Manual) */
         :root {
-            --brand-color: #360d3b;
-            --bg-color: #fdfdfd;
+            --brand-color: #360d3b; /* Roxo MAZRRY */
+            --bg-color: #fdfdfd;    /* Off-white / Cinza Claro de respiro */
             --text-color: #360d3b;
         }
 
@@ -23,7 +23,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Sora', sans-serif; /* Fonte Oficial */
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -34,7 +34,7 @@
             position: relative;
         }
 
-        /* TEXTURA DE FUNDO */
+        /* TEXTURA SUTIL (Mantida para profundidade) */
         body::before {
             content: "";
             position: absolute;
@@ -49,6 +49,7 @@
             z-index: 1;
             padding: 2rem;
             max-width: 800px;
+            width: 100%;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
@@ -57,63 +58,85 @@
         /* LOGO */
         .logo {
             max-width: 380px;
-            width: 90%;
+            width: 85%;
             height: auto;
-            margin-bottom: 3.5rem;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            /* Margem inferior removida para controlar via 'fine-jewelry' */
         }
 
-        /* ASSINATURA */
-        .signature {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 300;
-            line-height: 1.5;
+        /* FINE JEWELRY (Descritivo) */
+        .fine-jewelry {
+            font-family: 'Sora', sans-serif;
+            font-weight: 300; /* Sora Light */
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 6px; /* Espaçamento de luxo */
+            margin-top: 1.5rem; /* Espaço de respiro do logo */
+            margin-bottom: 4rem; /* Espaço para o próximo elemento */
             color: var(--brand-color);
-            margin-bottom: 3rem; /* Reduzi um pouco para caber o status */
-            letter-spacing: -0.5px;
+            opacity: 0.9;
         }
-        .signature strong { font-weight: 600; }
 
+        /* LINHA DIVISÓRIA */
         .divider {
             width: 1px;
-            height: 70px;
+            height: 60px;
             background: linear-gradient(to bottom, transparent, var(--brand-color), transparent);
-            opacity: 0.6;
+            opacity: 0.5;
             margin: 0 auto 3rem auto;
         }
 
-        /* NOVO: STATUS DO SITE (Sofisticado) */
-        .site-status {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 6px; /* Espaçamento bem largo = luxo */
+        /* ASSINATURA / MANIFESTO */
+        .signature {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.6rem; /* Ajustado para Sora (que é mais larga) */
+            font-weight: 300; /* Light */
+            line-height: 1.6;
+            color: var(--brand-color);
             margin-bottom: 3rem;
-            font-weight: 300;
+        }
+
+        .signature strong {
+            font-weight: 600; /* Sora SemiBold para destaque */
+        }
+
+        /* STATUS DO SITE */
+        .site-status {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 3rem;
+            font-weight: 400;
             opacity: 0.7;
             border-top: 1px solid rgba(54, 13, 59, 0.1);
             border-bottom: 1px solid rgba(54, 13, 59, 0.1);
-            padding: 10px 0;
+            padding: 12px 0;
             display: inline-block;
             width: 100%;
-            max-width: 500px;
+            max-width: 280px;
         }
 
-        /* SOCIAL & CTA */
+        /* REDES SOCIAIS */
+        .social-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .social-context {
             font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 1rem;
             color: var(--brand-color);
             opacity: 0.6;
+            font-weight: 400;
         }
 
         .instagram-link {
             display: inline-block;
-            font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             color: var(--brand-color);
             text-decoration: none;
@@ -122,6 +145,7 @@
             transition: all 0.5s ease;
             letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 400;
         }
 
         .instagram-link:hover {
@@ -131,14 +155,20 @@
             box-shadow: 0 5px 15px rgba(54, 13, 59, 0.15);
         }
 
+        /* ANIMAÇÃO DE ENTRADA */
         @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .logo { max-width: 300px; margin-bottom: 2.5rem; }
-            .signature { font-size: 1.5rem; margin-bottom: 2.5rem; }
-            .site-status { max-width: 250px; font-size: 0.65rem; letter-spacing: 4px; }
+            .logo { max-width: 300px; }
+            .fine-jewelry { font-size: 0.7rem; letter-spacing: 4px; margin-top: 1.2rem; margin-bottom: 3rem; }
+            .signature { font-size: 1.25rem; margin-bottom: 2.5rem; }
+            .divider { height: 40px; margin-bottom: 2rem; }
         }
     </style>
 </head>
@@ -146,6 +176,8 @@
 
     <div class="container">
         <img src="LogotipoMAZRRY-02.png" alt="MAZRRY" class="logo">
+
+        <p class="fine-jewelry">Fine Jewelry</p>
 
         <div class="divider"></div>
 
@@ -160,7 +192,7 @@
         </div>
 
         <div class="social-wrapper">
-            <p class="social-context">Acompanhe os bastidores</p>
+            <p class="social-context">Acompanhe a nossa história</p>
             <a href="https://instagram.com/mazrry_" target="_blank" class="instagram-link">
                 @mazrry_
             </a>
