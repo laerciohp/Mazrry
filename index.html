@@ -8,6 +8,13 @@
     
     <meta name="description" content="MAZRRY Fine Jewelry. Luxo aqui não é status, é elegância e subversão. Joias com design autoral.">
     
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MAZRRY | Em breve">
+    <meta property="og:description" content="MAZRRY Fine Jewelry. Luxo aqui não é status, é elegância e subversão.">
+    <meta property="og:image" content="favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
@@ -15,7 +22,7 @@
     <style>
         /* VARIÁVEIS DE COR (Baseadas no Manual) */
         :root {
-            --brand-color: #360d3b; [cite_start]/* Roxo MAZRRY [cite: 125] */
+            --brand-color: #360d3b; /* Roxo MAZRRY */
             --bg-color: #fdfdfd;    /* Off-white / Cinza Claro de respiro */
             --text-color: #360d3b;
         }
@@ -26,7 +33,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Sora', sans-serif; [cite_start]/* Fonte Oficial [cite: 172] */
+            font-family: 'Sora', sans-serif; /* Fonte Oficial */
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -60,8 +67,8 @@
 
         /* LOGO */
         .logo {
-            max-width: 380px;
-            width: 85%;
+            max-width: 450px; /* Aumentado de 380px para 450px */
+            width: 90%;       /* Aumentado de 85% para 90% */
             height: auto;
             display: block;
             margin: 0 auto;
@@ -69,7 +76,7 @@
 
         /* FINE JEWELRY (Descritivo) */
         .fine-jewelry {
-            font-family: 'Sora', sans-serif; [cite_start]/* [cite: 172] */
+            font-family: 'Sora', sans-serif; 
             font-weight: 300; /* Sora Light */
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -167,7 +174,7 @@
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .logo { max-width: 300px; }
+            .logo { max-width: 320px; } /* Ajuste proporcional no mobile */
             .fine-jewelry { font-size: 0.7rem; letter-spacing: 4px; margin-top: 1.2rem; margin-bottom: 3rem; }
             .signature { font-size: 1.25rem; margin-bottom: 2.5rem; }
             .divider { height: 40px; margin-bottom: 2rem; }
