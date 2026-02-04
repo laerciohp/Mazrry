@@ -20,10 +20,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* VARIÁVEIS DE COR (Baseadas no Manual) */
+        /* VARIÁVEIS DE COR */
         :root {
-            --brand-color: #360d3b; /* Roxo MAZRRY */
-            --bg-color: #fdfdfd;    /* Off-white / Cinza Claro de respiro */
+            --brand-color: #360d3b;
+            --bg-color: #fdfdfd;
             --text-color: #360d3b;
         }
 
@@ -33,18 +33,18 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Sora', sans-serif; /* Fonte Oficial */
+            font-family: 'Sora', sans-serif;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centraliza verticalmente */
             align-items: center;
             text-align: center;
             overflow: hidden;
             position: relative;
         }
 
-        /* TEXTURA SUTIL (Mantida para profundidade) */
+        /* TEXTURA SUTIL */
         body::before {
             content: "";
             position: absolute;
@@ -63,42 +63,46 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            
+            /* TRUQUE PARA SUBIR O CONTEÚDO VISUALMENTE */
+            padding-bottom: 10vh; /* Empurra o conteúdo para cima */
         }
 
         /* LOGO */
         .logo {
-            max-width: 450px; /* Aumentado de 380px para 450px */
-            width: 90%;       /* Aumentado de 85% para 90% */
+            max-width: 450px;
+            width: 90%;
             height: auto;
             display: block;
             margin: 0 auto;
         }
 
-        /* FINE JEWELRY (Descritivo) */
+        /* FINE JEWELRY */
         .fine-jewelry {
             font-family: 'Sora', sans-serif; 
-            font-weight: 300; /* Sora Light */
+            font-weight: 300;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 6px; /* Espaçamento de luxo */
-            margin-top: 1.5rem; /* Espaço de respiro do logo */
-            margin-bottom: 4rem; /* Espaço para o próximo elemento */
+            letter-spacing: 6px;
+            margin-top: 1.5rem;
+            margin-bottom: 3.5rem; /* Reduzi um pouco para aproximar a assinatura */
             color: var(--brand-color);
             opacity: 0.9;
         }
 
-        /* ASSINATURA / MANIFESTO */
+        /* ASSINATURA / FRASE (Bem menor agora) */
         .signature {
             font-family: 'Sora', sans-serif;
-            font-size: 1.0rem;
-            font-weight: 300; /* Light */
-            line-height: 1.6;
+            font-size: 0.8rem; /* Reduzido de 1.0rem */
+            font-weight: 300;
+            line-height: 1.8; /* Mais espaçamento entre linhas para elegância */
             color: var(--brand-color);
             margin-bottom: 3rem;
+            letter-spacing: 0.5px;
         }
 
         .signature strong {
-            font-weight: 300; /* Sora SemiBold para destaque */
+            font-weight: 300;
         }
 
         /* STATUS DO SITE */
@@ -165,10 +169,25 @@
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .logo { max-width: 320px; } /* Ajuste proporcional no mobile */
-            .fine-jewelry { font-size: 0.7rem; letter-spacing: 4px; margin-top: 1.2rem; margin-bottom: 3rem; }
-            .signature { font-size: 1.25rem; margin-bottom: 2.5rem; }
-            .divider { height: 40px; margin-bottom: 2rem; }
+            /* Ajuste para jogar o logo mais pra cima no mobile */
+            .container {
+                padding-bottom: 20vh; /* Aumentei o espaço embaixo para subir o bloco */
+            }
+            
+            .logo { max-width: 320px; }
+            
+            .fine-jewelry { 
+                font-size: 0.7rem; 
+                letter-spacing: 4px; 
+                margin-top: 1.2rem; 
+                margin-bottom: 2.5rem; 
+            }
+            
+            /* Texto da frase bem menor no mobile */
+            .signature { 
+                font-size: 0.75rem; /* Reduzido de 1.25rem para 0.75rem */
+                margin-bottom: 2.5rem; 
+            }
         }
     </style>
 </head>
