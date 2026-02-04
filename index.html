@@ -34,10 +34,10 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Sora', sans-serif;
-            height: 100vh;
+            height: 100vh; /* Ocupa 100% da altura da tela */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Desktop: Centralizado */
+            justify-content: center; /* DESKTOP: Mantém tudo no meio da tela */
             align-items: center;
             text-align: center;
             overflow: hidden;
@@ -164,27 +164,34 @@
             }
         }
 
-        /* RESPONSIVIDADE (MOBILE) */
+        /* ========================================= */
+        /* VERSÃO MOBILE (AJUSTE CRÍTICO DE POSIÇÃO) */
+        /* ========================================= */
         @media (max-width: 768px) {
             body {
-                /* MUDANÇA PRINCIPAL: Alinha tudo ao topo em vez do centro */
+                /* Alinha tudo ao TOPO da tela, não ao centro */
                 justify-content: flex-start;
-                padding-top: 15vh; /* Empurra 15% da altura da tela para baixo (respiro do topo) */
+                
+                /* Espaço pequeno do topo (Cabeçalho) */
+                padding-top: 50px; 
             }
 
             .container {
-                /* Removemos o padding bottom extra pois agora estamos alinhados ao topo */
-                padding-bottom: 0; 
+                /* Garante que o container comece logo onde o padding do body termina */
                 padding-top: 0;
             }
             
-            .logo { max-width: 320px; }
+            .logo { 
+                max-width: 320px;
+                /* Remove margem extra se houver */
+                margin-top: 0; 
+            }
             
             .fine-jewelry { 
                 font-size: 0.7rem; 
                 letter-spacing: 4px; 
-                margin-top: 1.2rem; 
-                margin-bottom: 2.5rem; 
+                margin-top: 1rem; 
+                margin-bottom: 3rem; /* Espaço entre o topo e o resto do conteúdo */
             }
             
             .signature { 
