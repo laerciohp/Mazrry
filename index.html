@@ -30,14 +30,17 @@
         /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body {
+            height: 100%; /* Garante altura total */
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Sora', sans-serif;
-            height: 100vh; /* Ocupa 100% da altura da tela */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* DESKTOP: Mantém tudo no meio da tela */
+            justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
@@ -54,15 +57,28 @@
             z-index: 0;
         }
 
+        /* CONTAINER PRINCIPAL */
         .container {
             position: relative;
             z-index: 1;
             padding: 2rem;
             max-width: 800px;
             width: 100%;
+            height: 100%; /* Ocupa altura total para distribuir */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Desktop: Tudo no meio */
+            align-items: center;
             opacity: 0;
-            transform: translateY(20px);
             animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        /* GRUPOS DE LAYOUT (Para controle de posição) */
+        .top-section, .middle-section, .bottom-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* LOGO */
@@ -71,7 +87,6 @@
             width: 90%;
             height: auto;
             display: block;
-            margin: 0 auto;
         }
 
         /* FINE JEWELRY */
@@ -82,24 +97,19 @@
             text-transform: uppercase;
             letter-spacing: 6px;
             margin-top: 1.5rem;
-            margin-bottom: 3.5rem; 
             color: var(--brand-color);
             opacity: 0.9;
         }
 
-        /* ASSINATURA / FRASE */
+        /* ASSINATURA */
         .signature {
             font-family: 'Sora', sans-serif;
             font-size: 0.8rem;
             font-weight: 300;
             line-height: 1.8;
             color: var(--brand-color);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             letter-spacing: 0.5px;
-        }
-
-        .signature strong {
-            font-weight: 300;
         }
 
         /* STATUS DO SITE */
@@ -108,7 +118,6 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 3rem;
             font-weight: 400;
             opacity: 0.7;
             border-top: 1px solid rgba(54, 13, 59, 0.1);
@@ -120,12 +129,6 @@
         }
 
         /* REDES SOCIAIS */
-        .social-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         .social-context {
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -156,47 +159,39 @@
             box-shadow: 0 5px 15px rgba(54, 13, 59, 0.15);
         }
 
-        /* ANIMAÇÃO DE ENTRADA */
         @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ========================================= */
-        /* VERSÃO MOBILE (AJUSTE CRÍTICO DE POSIÇÃO) */
+        /* MEDIA QUERY: CELULAR (LAYOUT DISTRIBUÍDO) */
         /* ========================================= */
         @media (max-width: 768px) {
-            body {
-                /* Alinha tudo ao TOPO da tela, não ao centro */
-                justify-content: flex-start;
-                
-                /* Espaço pequeno do topo (Cabeçalho) */
-                padding-top: 50px; 
+            .container {
+                /* Mágica do Layout: Espalha Topo, Meio e Rodapé */
+                justify-content: space-between; 
+                padding: 4vh 1.5rem 5vh 1.5rem; /* Margem segura Topo e Base */
             }
 
-            .container {
-                /* Garante que o container comece logo onde o padding do body termina */
-                padding-top: 0;
+            .logo { max-width: 300px; }
+
+            .fine-jewelry {
+                font-size: 0.7rem;
+                letter-spacing: 4px;
+                margin-top: 1rem;
+                /* Remove margem inferior grande pois o space-between cuida disso */
+                margin-bottom: 0; 
             }
-            
-            .logo { 
-                max-width: 320px;
-                /* Remove margem extra se houver */
-                margin-top: 0; 
+
+            /* Ajustes finos para o bloco do meio não colar demais */
+            .middle-section {
+                /* Opcional: deslocar levemente para cima se quiser */
+                transform: translateY(-5%); 
             }
-            
-            .fine-jewelry { 
-                font-size: 0.7rem; 
-                letter-spacing: 4px; 
-                margin-top: 1rem; 
-                margin-bottom: 3rem; /* Espaço entre o topo e o resto do conteúdo */
-            }
-            
-            .signature { 
-                font-size: 0.75rem; 
-                margin-bottom: 2.5rem; 
+
+            .signature {
+                font-size: 0.75rem;
+                margin-bottom: 2rem;
             }
         }
     </style>
@@ -204,26 +199,31 @@
 <body>
 
     <div class="container">
-        <img src="LogotipoMAZRRY-02.png" alt="MAZRRY" class="logo">
-
-        <p class="fine-jewelry">Fine Jewelry</p>
-
-        <p class="signature">
-            Mais do que uma marca,<br>
-            somos frequência,<br>
-            linguagem e presença.
-        </p>
-
-        <div class="site-status">
-            E-BOUTIQUE • Em Breve
+        
+        <div class="top-section">
+            <img src="LogotipoMAZRRY-02.png" alt="MAZRRY" class="logo">
+            <p class="fine-jewelry">Fine Jewelry</p>
         </div>
 
-        <div class="social-wrapper">
+        <div class="middle-section">
+            <p class="signature">
+                Mais do que uma marca,<br>
+                somos frequência,<br>
+                linguagem e presença.
+            </p>
+
+            <div class="site-status">
+                E-BOUTIQUE • Em Breve
+            </div>
+        </div>
+
+        <div class="bottom-section">
             <p class="social-context">Acompanhe a nossa história</p>
             <a href="https://instagram.com/mazrry_" target="_blank" class="instagram-link">
                 @mazrry_
             </a>
         </div>
+
     </div>
 
 </body>
