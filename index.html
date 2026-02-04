@@ -37,7 +37,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centraliza verticalmente */
+            justify-content: center; /* Desktop: Centralizado */
             align-items: center;
             text-align: center;
             overflow: hidden;
@@ -63,9 +63,6 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-            
-            /* TRUQUE PARA SUBIR O CONTEÚDO VISUALMENTE */
-            padding-bottom: 10vh; /* Empurra o conteúdo para cima */
         }
 
         /* LOGO */
@@ -85,17 +82,17 @@
             text-transform: uppercase;
             letter-spacing: 6px;
             margin-top: 1.5rem;
-            margin-bottom: 3.5rem; /* Reduzi um pouco para aproximar a assinatura */
+            margin-bottom: 3.5rem; 
             color: var(--brand-color);
             opacity: 0.9;
         }
 
-        /* ASSINATURA / FRASE (Bem menor agora) */
+        /* ASSINATURA / FRASE */
         .signature {
             font-family: 'Sora', sans-serif;
-            font-size: 0.8rem; /* Reduzido de 1.0rem */
+            font-size: 0.8rem;
             font-weight: 300;
-            line-height: 1.8; /* Mais espaçamento entre linhas para elegância */
+            line-height: 1.8;
             color: var(--brand-color);
             margin-bottom: 3rem;
             letter-spacing: 0.5px;
@@ -167,11 +164,18 @@
             }
         }
 
-        /* RESPONSIVIDADE */
+        /* RESPONSIVIDADE (MOBILE) */
         @media (max-width: 768px) {
-            /* Ajuste para jogar o logo mais pra cima no mobile */
+            body {
+                /* MUDANÇA PRINCIPAL: Alinha tudo ao topo em vez do centro */
+                justify-content: flex-start;
+                padding-top: 15vh; /* Empurra 15% da altura da tela para baixo (respiro do topo) */
+            }
+
             .container {
-                padding-bottom: 20vh; /* Aumentei o espaço embaixo para subir o bloco */
+                /* Removemos o padding bottom extra pois agora estamos alinhados ao topo */
+                padding-bottom: 0; 
+                padding-top: 0;
             }
             
             .logo { max-width: 320px; }
@@ -183,9 +187,8 @@
                 margin-bottom: 2.5rem; 
             }
             
-            /* Texto da frase bem menor no mobile */
             .signature { 
-                font-size: 0.75rem; /* Reduzido de 1.25rem para 0.75rem */
+                font-size: 0.75rem; 
                 margin-bottom: 2.5rem; 
             }
         }
