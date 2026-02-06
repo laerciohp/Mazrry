@@ -40,7 +40,6 @@
             font-family: 'Sora', sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
@@ -62,18 +61,21 @@
             position: relative;
             z-index: 1;
             padding: 2rem;
-            max-width: 800px;
+            max-width: 1000px; /* Aumentei um pouco a largura máxima */
             width: 100%;
-            height: 100%; /* Ocupa altura total para distribuir */
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Desktop: Tudo no meio */
+            /* Garante a distribuição vertical: Topo, Meio, Base */
+            justify-content: space-between; 
             align-items: center;
             opacity: 0;
             animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            padding-bottom: 5vh; /* Respiro extra no rodapé */
+            padding-top: 5vh;    /* Respiro extra no topo */
         }
 
-        /* GRUPOS DE LAYOUT (Para controle de posição) */
+        /* SEÇÕES */
         .top-section, .middle-section, .bottom-section {
             width: 100%;
             display: flex;
@@ -81,9 +83,9 @@
             align-items: center;
         }
 
-        /* LOGO */
+        /* LOGO (Aumentado conforme pedido) */
         .logo {
-            max-width: 450px;
+            max-width: 550px; /* Aumentado de 450px para 550px */
             width: 90%;
             height: auto;
             display: block;
@@ -101,51 +103,54 @@
             opacity: 0.9;
         }
 
-        /* ASSINATURA */
+        /* ASSINATURA (FRASE CENTRAL - LINHA ÚNICA) */
         .signature {
             font-family: 'Sora', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.9rem; /* Tamanho equilibrado */
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.6;
             color: var(--brand-color);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem; /* Espaço até o E-Boutique */
             letter-spacing: 0.5px;
+            
+            /* No desktop, garante linha única se a tela permitir */
+            white-space: normal; 
         }
 
         /* STATUS DO SITE */
         .site-status {
             font-family: 'Sora', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             font-weight: 400;
-            opacity: 0.7;
-            border-top: 1px solid rgba(54, 13, 59, 0.1);
-            border-bottom: 1px solid rgba(54, 13, 59, 0.1);
-            padding: 12px 0;
+            opacity: 0.8;
+            border-top: 1px solid rgba(54, 13, 59, 0.15);
+            border-bottom: 1px solid rgba(54, 13, 59, 0.15);
+            padding: 15px 0;
             display: inline-block;
             width: 100%;
-            max-width: 280px;
+            max-width: 320px;
         }
 
         /* REDES SOCIAIS */
         .social-context {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem; /* Mais espaçamento entre texto e botão */
             color: var(--brand-color);
-            opacity: 0.6;
+            opacity: 0.7;
             font-weight: 400;
         }
 
         .instagram-link {
             display: inline-block;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--brand-color);
             text-decoration: none;
             border: 1px solid var(--brand-color);
-            padding: 12px 30px;
+            padding: 14px 40px;
             transition: all 0.5s ease;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -164,34 +169,38 @@
         }
 
         /* ========================================= */
-        /* MEDIA QUERY: CELULAR (LAYOUT DISTRIBUÍDO) */
+        /* MEDIA QUERY: CELULAR */
         /* ========================================= */
         @media (max-width: 768px) {
             .container {
-                /* Mágica do Layout: Espalha Topo, Meio e Rodapé */
-                justify-content: space-between; 
-                padding: 4vh 1.5rem 5vh 1.5rem; /* Margem segura Topo e Base */
+                padding: 6vh 1.5rem 6vh 1.5rem; /* Mais respiro vertical */
             }
 
-            .logo { max-width: 300px; }
+            .logo { 
+                max-width: 340px; /* Logo grande no mobile também */
+            }
 
             .fine-jewelry {
                 font-size: 0.7rem;
                 letter-spacing: 4px;
                 margin-top: 1rem;
-                /* Remove margem inferior grande pois o space-between cuida disso */
-                margin-bottom: 0; 
             }
 
-            /* Ajustes finos para o bloco do meio não colar demais */
-            .middle-section {
-                /* Opcional: deslocar levemente para cima se quiser */
-                transform: translateY(-5%); 
-            }
-
+            /* Ajuste da frase no mobile para não ficar gigante */
             .signature {
-                font-size: 0.75rem;
-                margin-bottom: 2rem;
+                font-size: 0.8rem; 
+                margin-bottom: 2.5rem;
+                padding: 0 10px; /* Margem lateral para não colar na borda */
+            }
+            
+            .site-status {
+                max-width: 280px;
+                font-size: 0.65rem;
+            }
+            
+            .bottom-section {
+                /* Garante que o rodapé tenha um respiro extra */
+                padding-bottom: 10px;
             }
         }
     </style>
@@ -207,9 +216,7 @@
 
         <div class="middle-section">
             <p class="signature">
-                Mais do que uma marca,<br>
-                somos frequência,<br>
-                linguagem e presença.
+                Mais do que uma marca, somos frequência, linguagem e presença.
             </p>
 
             <div class="site-status">
