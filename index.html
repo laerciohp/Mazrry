@@ -56,41 +56,48 @@
             z-index: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centraliza o bloco todo verticalmente */
+            justify-content: center;
             align-items: center;
             height: 100%;
             width: 100%;
             padding: 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
             animation: fadeIn 1.5s ease-out forwards;
         }
 
-        /* --- 1. LOGO (MAIOR) --- */
+        /* --- 1. LOGO (AINDA MAIOR) --- */
         .logo {
-            width: 90%;
-            max-width: 650px; /* Aumentado para dar destaque */
+            width: 95%; /* Ocupa quase toda a largura disponível */
+            max-width: 800px; /* Limite aumentado para ficar gigante no desktop */
             height: auto;
             display: block;
-            margin-bottom: 4vh; /* Espaço entre logo e frase */
+            margin-bottom: 3vh; /* Espaço até a frase */
         }
 
-        /* --- 2. FRASE E STATUS --- */
-        .text-block {
-            text-align: center;
-            margin-bottom: 5vh; /* Espaço maior para separar do bloco social */
-        }
-
+        /* --- 2. FRASE (CENTRALIZADA) --- */
         .phrase {
             font-size: 1.1rem;
             font-weight: 300; /* Light */
             line-height: 1.5;
             color: var(--brand-color);
-            margin-bottom: 2rem;
+            text-align: center;
             max-width: 800px;
+            
+            /* O PULO DO GATO: Margem inferior gigante para empurrar o resto */
+            margin-bottom: 12vh; 
         }
 
+        /* --- 3. BLOCO INFERIOR (STATUS + SOCIAL) --- */
+        .bottom-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem; /* Espaço entre o "E-Boutique" e o "Social" */
+        }
+
+        /* STATUS E-BOUTIQUE */
         .status {
             font-size: 0.85rem;
             font-weight: 400;
@@ -100,8 +107,8 @@
             opacity: 0.9;
         }
 
-        /* --- 3. SOCIAL (AGRUPADO E COM BORDA) --- */
-        .social-block {
+        /* BLOCO SOCIAL */
+        .social-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -111,7 +118,7 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 1rem; /* Próximo do botão */
+            margin-bottom: 1rem;
             color: var(--brand-color);
             font-weight: 400;
             opacity: 0.8;
@@ -122,7 +129,7 @@
             font-size: 0.9rem;
             color: var(--brand-color);
             text-decoration: none;
-            border: 1px solid var(--brand-color); /* Borda de volta */
+            border: 1px solid var(--brand-color);
             padding: 14px 45px;
             transition: all 0.4s ease;
             letter-spacing: 2px;
@@ -146,31 +153,28 @@
         /* --- RESPONSIVIDADE --- */
         @media (max-width: 768px) {
             .container {
-                justify-content: space-between; /* No mobile, espalha mais */
-                padding: 6vh 1.5rem;
+                /* No mobile, distribuímos o espaço verticalmente */
+                justify-content: space-between; 
+                padding: 8vh 1.5rem 6vh 1.5rem;
             }
 
             .logo {
-                max-width: 380px; /* Grande no mobile também */
+                max-width: 400px; /* Grande no mobile */
                 margin-bottom: 0;
             }
 
-            .text-block {
-                margin-bottom: 2rem;
-            }
-
             .phrase {
-                font-size: 0.9rem;
-                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+                margin-bottom: 0; /* No mobile o space-between cuida do espaço */
+                padding: 0 10px;
             }
 
+            .bottom-block {
+                gap: 2rem;
+            }
+            
             .status {
                 font-size: 0.75rem;
-            }
-
-            /* Ajuste para o botão não colar no fundo no mobile */
-            .social-block {
-                margin-bottom: 2vh;
             }
         }
     </style>
@@ -181,16 +185,19 @@
         
         <img src="LogotipoMAZRRY-02.png" alt="MAZRRY" class="logo">
 
-        <div class="text-block">
-            <p class="phrase">Mais do que uma marca, somos frequência, linguagem e presença.</p>
-            <div class="status">E-BOUTIQUE • Em Breve</div>
-        </div>
+        <p class="phrase">Mais do que uma marca, somos frequência, linguagem e presença.</p>
 
-        <div class="social-block">
-            <p class="social-context">Acompanhe a nossa história</p>
-            <a href="https://instagram.com/mazrry_" target="_blank" class="instagram-link">
-                @mazrry_
-            </a>
+        <div class="bottom-block">
+            
+            <div class="status">E-BOUTIQUE • Em Breve</div>
+
+            <div class="social-wrapper">
+                <p class="social-context">Acompanhe a nossa história</p>
+                <a href="https://instagram.com/mazrry_" target="_blank" class="instagram-link">
+                    @mazrry_
+                </a>
+            </div>
+
         </div>
 
     </div>
