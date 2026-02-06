@@ -6,7 +6,7 @@
     
     <title>MAZRRY | Em breve</title>
     
-    <meta name="description" content="MAZRRY Fine Jewelry. Luxo aqui não é status, é elegância e subversão. Joias com design autoral.">
+    <meta name="description" content="MAZRRY Fine Jewelry. Luxo aqui não é status, é elegância e subversão.">
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -20,23 +20,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* VARIÁVEIS DE COR */
+        /* VARIÁVEIS */
         :root {
             --brand-color: #360d3b;
             --bg-color: #fdfdfd;
-            --text-color: #360d3b;
         }
 
-        /* RESET & BASE */
+        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html, body {
-            height: 100%; /* Garante altura total */
-        }
+        html, body { height: 100%; }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--brand-color);
             font-family: 'Sora', sans-serif;
             display: flex;
             flex-direction: column;
@@ -46,7 +43,7 @@
             position: relative;
         }
 
-        /* TEXTURA SUTIL */
+        /* TEXTURA SUTIL (Fundo) */
         body::before {
             content: "";
             position: absolute;
@@ -60,147 +57,125 @@
         .container {
             position: relative;
             z-index: 1;
-            padding: 2rem;
-            max-width: 1000px; /* Aumentei um pouco a largura máxima */
             width: 100%;
             height: 100%;
+            max-width: 1200px;
+            padding: 4vh 2rem; /* Margens gerais */
+            
             display: flex;
             flex-direction: column;
-            /* Garante a distribuição vertical: Topo, Meio, Base */
+            /* O SEGREDO DO PDF: Espaçar os 3 blocos igualmente */
             justify-content: space-between; 
             align-items: center;
+
             opacity: 0;
-            animation: fadeUp 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-            padding-bottom: 5vh; /* Respiro extra no rodapé */
-            padding-top: 5vh;    /* Respiro extra no topo */
+            animation: fadeUp 1.2s ease-out forwards;
         }
 
-        /* SEÇÕES */
-        .top-section, .middle-section, .bottom-section {
+        /* --- 1. BLOCO TOPO (LOGO) --- */
+        .top-section {
             width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            padding-top: 2vh; /* Pequeno ajuste para não colar no teto */
         }
 
-        /* LOGO (Aumentado conforme pedido) */
         .logo {
-            max-width: 550px; /* Aumentado de 450px para 550px */
-            width: 90%;
+            max-width: 500px; /* Grande e imponente */
+            width: 85%;
             height: auto;
             display: block;
         }
 
-        /* FINE JEWELRY */
-        .fine-jewelry {
-            font-family: 'Sora', sans-serif; 
-            font-weight: 300;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            margin-top: 1.5rem;
-            color: var(--brand-color);
-            opacity: 0.9;
+        /* --- 2. BLOCO MEIO (FRASE + STATUS) --- */
+        .middle-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* ASSINATURA (FRASE CENTRAL - LINHA ÚNICA) */
         .signature {
             font-family: 'Sora', sans-serif;
-            font-size: 0.9rem; /* Tamanho equilibrado */
-            font-weight: 300;
-            line-height: 1.6;
+            font-size: 1rem; /* Tamanho legível e elegante */
+            font-weight: 300; /* Light */
+            line-height: 1.5;
             color: var(--brand-color);
-            margin-bottom: 3rem; /* Espaço até o E-Boutique */
-            letter-spacing: 0.5px;
-            
-            /* No desktop, garante linha única se a tela permitir */
-            white-space: normal; 
+            margin-bottom: 2.5rem; /* Espaço entre a frase e o "Em breve" */
+            max-width: 800px;
         }
 
-        /* STATUS DO SITE */
         .site-status {
             font-family: 'Sora', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-weight: 400;
-            opacity: 0.8;
-            border-top: 1px solid rgba(54, 13, 59, 0.15);
-            border-bottom: 1px solid rgba(54, 13, 59, 0.15);
-            padding: 15px 0;
-            display: inline-block;
-            width: 100%;
-            max-width: 320px;
-        }
-
-        /* REDES SOCIAIS */
-        .social-context {
-            font-size: 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 400; /* Um pouco mais peso que a frase */
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 1.5rem; /* Mais espaçamento entre texto e botão */
             color: var(--brand-color);
-            opacity: 0.7;
-            font-weight: 400;
+            /* Sem bordas, sem caixas, apenas texto puro como no PDF */
+        }
+
+        /* --- 3. BLOCO BASE (SOCIAL) --- */
+        .bottom-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 2vh; /* Ajuste para não colar no chão */
+        }
+
+        .social-context {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem; /* Espaço curto entre o título e o @ */
+            color: var(--brand-color);
+            font-weight: 300;
         }
 
         .instagram-link {
-            display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--brand-color);
             text-decoration: none;
-            border: 1px solid var(--brand-color);
-            padding: 14px 40px;
-            transition: all 0.5s ease;
-            letter-spacing: 2px;
+            font-weight: 600; /* Destaque leve no @ */
+            letter-spacing: 1px;
             text-transform: uppercase;
-            font-weight: 400;
+            transition: opacity 0.3s ease;
+            /* Sem borda, estilo link limpo */
         }
 
         .instagram-link:hover {
-            background-color: var(--brand-color);
-            color: #ffffff;
-            letter-spacing: 3px;
-            box-shadow: 0 5px 15px rgba(54, 13, 59, 0.15);
+            opacity: 0.7;
         }
 
+        /* ANIMAÇÃO */
         @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========================================= */
-        /* MEDIA QUERY: CELULAR */
-        /* ========================================= */
+        /* --- MOBILE --- */
         @media (max-width: 768px) {
             .container {
-                padding: 6vh 1.5rem 6vh 1.5rem; /* Mais respiro vertical */
+                padding: 5vh 1.5rem;
             }
+            
+            .logo { max-width: 300px; } /* Ajuste proporcional */
 
-            .logo { 
-                max-width: 340px; /* Logo grande no mobile também */
-            }
-
-            .fine-jewelry {
-                font-size: 0.7rem;
-                letter-spacing: 4px;
-                margin-top: 1rem;
-            }
-
-            /* Ajuste da frase no mobile para não ficar gigante */
             .signature {
-                font-size: 0.8rem; 
-                margin-bottom: 2.5rem;
-                padding: 0 10px; /* Margem lateral para não colar na borda */
+                font-size: 0.9rem;
+                margin-bottom: 2rem;
+                padding: 0 10px;
             }
-            
+
             .site-status {
-                max-width: 280px;
-                font-size: 0.65rem;
+                font-size: 0.75rem;
+                letter-spacing: 2px;
             }
-            
+
             .bottom-section {
-                /* Garante que o rodapé tenha um respiro extra */
-                padding-bottom: 10px;
+                padding-bottom: 4vh; /* Mais respiro no dedo no mobile */
             }
         }
     </style>
@@ -211,7 +186,6 @@
         
         <div class="top-section">
             <img src="LogotipoMAZRRY-02.png" alt="MAZRRY" class="logo">
-            <p class="fine-jewelry">Fine Jewelry</p>
         </div>
 
         <div class="middle-section">
@@ -219,15 +193,15 @@
                 Mais do que uma marca, somos frequência, linguagem e presença.
             </p>
 
-            <div class="site-status">
-                E-BOUTIQUE • Em Breve
-            </div>
+            <p class="site-status">
+                E-BOUTIQUE EM BREVE
+            </p>
         </div>
 
         <div class="bottom-section">
             <p class="social-context">Acompanhe a nossa história</p>
             <a href="https://instagram.com/mazrry_" target="_blank" class="instagram-link">
-                @mazrry_
+                @MAZRRY_
             </a>
         </div>
 
