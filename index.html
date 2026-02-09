@@ -56,27 +56,31 @@
             z-index: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            
+            /* O SEGREDO: Space-between joga o logo pro teto, frase pro meio e rodapé pro chão */
+            justify-content: space-between; 
             align-items: center;
+            
             height: 100%;
             width: 100%;
-            padding: 2rem;
+            padding: 4vh 2rem 5vh 2rem; /* Margens de segurança Topo/Base */
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
             animation: fadeIn 1.5s ease-out forwards;
         }
 
-        /* --- 1. LOGO (AINDA MAIOR) --- */
+        /* --- 1. LOGO (GIGANTE E NO TOPO) --- */
         .logo {
-            width: 95%; /* Ocupa quase toda a largura disponível */
-            max-width: 800px; /* Limite aumentado para ficar gigante no desktop */
+            width: 100%; 
+            max-width: 1000px; /* Aumentado de 800px para 1000px */
             height: auto;
             display: block;
-            margin-bottom: 3vh; /* Espaço até a frase */
+            /* Sem margem extra, o space-between cuida do posicionamento */
         }
 
-        /* --- 2. FRASE (CENTRALIZADA) --- */
+        /* --- 2. FRASE (CENTRALIZADA ABSOLUTA) --- */
+        /* O Flexbox Space-Between já a deixará no centro verticalmente */
         .phrase {
             font-size: 1.1rem;
             font-weight: 300; /* Light */
@@ -84,9 +88,7 @@
             color: var(--brand-color);
             text-align: center;
             max-width: 800px;
-            
-            /* O PULO DO GATO: Margem inferior gigante para empurrar o resto */
-            margin-bottom: 12vh; 
+            margin: 0; /* Remove margens para centralização perfeita */
         }
 
         /* --- 3. BLOCO INFERIOR (STATUS + SOCIAL) --- */
@@ -94,7 +96,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2.5rem; /* Espaço entre o "E-Boutique" e o "Social" */
+            gap: 3rem; /* Espaço generoso entre "E-Boutique" e o Botão */
+            width: 100%;
         }
 
         /* STATUS E-BOUTIQUE */
@@ -153,24 +156,20 @@
         /* --- RESPONSIVIDADE --- */
         @media (max-width: 768px) {
             .container {
-                /* No mobile, distribuímos o espaço verticalmente */
-                justify-content: space-between; 
-                padding: 8vh 1.5rem 6vh 1.5rem;
+                padding: 6vh 1.5rem 5vh 1.5rem;
             }
 
             .logo {
-                max-width: 400px; /* Grande no mobile */
-                margin-bottom: 0;
+                max-width: 450px; /* Grande no mobile */
             }
 
             .phrase {
                 font-size: 0.95rem;
-                margin-bottom: 0; /* No mobile o space-between cuida do espaço */
                 padding: 0 10px;
             }
 
             .bottom-block {
-                gap: 2rem;
+                gap: 2.5rem;
             }
             
             .status {
